@@ -19,7 +19,8 @@ class Patient extends Model
         'guardian_name',
         'guardian_phone',
         'relationship',
-        'quantity_of_consultation'
+        'login_id',
+        'password'
     ];
     public function consultation()  //making relationship
                 {

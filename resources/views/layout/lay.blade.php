@@ -18,7 +18,13 @@
       @include('layout.nav')
       <div id="layoutSidenav">
              @include('layout.sidebar')
-             @yield('content')
+             <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid mt-3 px-4">
+                            @yield('content')
+                    </div>        
+                </main>
+            </div>   
       </div>
       @include('layout.footer')
 

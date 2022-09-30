@@ -24,7 +24,8 @@ class CreatePatientsTable extends Migration
             $table->text('guardian_name')->nullable();
             $table->text('guardian_phone')->nullable();
             $table->text('relationship')->nullable();
-            $table->integer('quantity_of_consultation')->default(1);
+            $table->text('login_id')->unique();
+            $table->text('password');
             $table->timestamps();
         });
     }
