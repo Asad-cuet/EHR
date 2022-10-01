@@ -3,7 +3,7 @@
               <div class="sb-sidenav-menu">
                   <div class="nav">
                       <div class="sb-sidenav-menu-heading">Core</div>
-                      <a class="nav-link" href="index.html">
+                      <a class="nav-link" href="{{url('/')}}">
                           <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                           Dashboard
                       </a>
@@ -16,7 +16,7 @@
                       <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                           <nav class="sb-sidenav-menu-nested nav">
                               <a class="nav-link" href="{{url('/patients')}}">Patient List</a>
-                              <a class="nav-link" href="{{url('/patient-form')}}">Add Patient</a>
+                              <a class="nav-link" href="{{url('/patient-form')}}">Patient Registration</a>
                           </nav>
                       </div>
                       <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

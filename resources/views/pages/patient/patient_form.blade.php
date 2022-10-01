@@ -14,7 +14,18 @@
               <input required type="text" name="name" class="form-control" placeholder="Name" aria-label="First name">
             </div>
             <div class="col">
-              <input required type="text" name="gender" class="form-control" placeholder="Gender" aria-label="Last name">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" value="male">
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Male
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" value="female">
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Female
+                      </label>
+                    </div>
             </div>
       </div>
       <br>
@@ -49,7 +60,7 @@
       </div>
       <br>
       <div class="text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Register</button>
       </div>
       
 </form>

@@ -15,6 +15,11 @@
         <link href="{{asset('template/css/styles.css')}}" rel="stylesheet">
     </head>
     <body class="sb-nav-fixed">
+        @if(session('status'))
+            <script>
+                swal("{{ session('status') }}");
+            </script>    
+        @endif  
       @include('layout.nav')
       <div id="layoutSidenav">
              @include('layout.sidebar')
