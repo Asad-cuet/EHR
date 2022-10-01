@@ -11,7 +11,7 @@ class consultation extends Model
     protected $table='consultations';
     protected $fillable=[
         'patient_id',
-        'consulted_by',
+        'consulted_by',   //doctor_id
         'problem_details',
         'problem_duration',
         'pre_prescribe',
@@ -28,6 +28,10 @@ class consultation extends Model
     ];
     public function patient()  //making relationship
                 {
-                     return $this->belongsTo(consultation::class,'id','patient_id');
+                     return $this->belongsTo(Patient::class,'id','patient_id');
+                }
+    public function doctor()  //making relationship
+                {
+                     return $this->belongsTo(Doctor::class,'id','consulted_by');
                 }
 }

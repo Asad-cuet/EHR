@@ -1,6 +1,6 @@
 @extends('layout.lay')
 
-@section('title','Patients')
+@section('title','Patient View')
 @section('content')
 
 

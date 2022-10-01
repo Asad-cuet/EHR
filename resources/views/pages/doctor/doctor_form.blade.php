@@ -5,8 +5,8 @@
 
 
 <div class="" style="width:100%;max-width:700px;margin:auto">
-<h3 class="text-center">Add Patient</h3>
-<form method="POST" action="{{url('/add-patient')}}">
+<h3 class="text-center">Add Doctor</h3>
+<form method="POST" action="{{url('/add-doctor')}}">
       @csrf
 
       <div class="row">
@@ -31,31 +31,10 @@
       <br>
       <div class="row">
             <div class="col">
-              <input required type="number" name="age" class="form-control" placeholder="Age" aria-label="First name">
+              <input required type="text" name="subject" class="form-control" placeholder="Subject" aria-label="First name">
             </div>
             <div class="col">
-              <input required type="number" name="weight" class="form-control" placeholder="Weight" aria-label="Last name">
-            </div>
-      </div>
-      <br>
-      <div class="row">
-            <div class="col">
-              <input required type="text" name="address" class="form-control" placeholder="Address" aria-label="First name">
-            </div>
-            <div class="col">
-              <input required type="number" name="phone" class="form-control" placeholder="Phone" aria-label="First name">
-            </div>
-      </div>
-      <br>
-      <div class="row">
-            <div class="col">
-              <input type="text" name="guardian_name" class="form-control" placeholder="Guardian Name (optional)" aria-label="First name">
-            </div>
-            <div class="col">
-              <input type="number" name="guardian_phone" class="form-control" placeholder="Guardian Phone (optional)" aria-label="First name">
-            </div>
-            <div class="col">
-              <input type="text" name="relationship" class="form-control" placeholder="Relationship (optional)" aria-label="First name">
+              <input required type="text" name="phone" class="form-control" placeholder="Phone" aria-label="First name">
             </div>
       </div>
       <br>
