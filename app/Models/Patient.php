@@ -20,10 +20,12 @@ class Patient extends Model
         'guardian_phone',
         'relationship',
         'login_id',
-        'password'
+        'password',
+        'is_consulted',
+        'is_cleared'
     ];
-    public function consultation()  //making relationship
-                {
-                     return $this->belongsTo(consultation::class,'patient_id','id');
-                }
+    // public function consultation()  //making relationship
+    //             {
+    //                  return $this->belongsTo(consultation::class,'patient_id','id');
+    //             }
 }

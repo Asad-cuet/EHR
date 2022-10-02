@@ -18,6 +18,7 @@
        <th scope="col">Age</th>
        <th scope="col">Weight</th>
        <th scope="col">Phone</th>
+       <th scope="col">Is Clear</th>
        <th scope="col">Action</th>
      </tr>
    </thead>
@@ -31,8 +32,17 @@
          <td>{{$item['weight']}}</td>
          <td>{{$item['phone']}}</td>
          <td>
+          @if($item['is_cleared'])
+          <div class="badge  bg-success">Clear</div>
+          @else
+          <div class="badge  bg-danger">Not clear</div>    
+          @endif
+        </td>
+         <td>
             <a href="{{url('/patient-view/'.$item['id'])}}" class="btn btn-secondary">View</a>
-            <button class="btn btn-primary">Consultation</button>
+            @if(!$item['is_consulted'])
+            <a href="{{url('/consultant/'.$item['id'])}}" class="btn btn-primary">Consultation</a>
+            @endif
          </td>
          
        </tr>       

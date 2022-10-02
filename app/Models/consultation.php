@@ -28,10 +28,10 @@ class consultation extends Model
     ];
     public function patient()  //making relationship
                 {
-                     return $this->belongsTo(Patient::class,'id','patient_id');
+                     return $this->belongsTo(Patient::class,'patient_id','id');
                 }
     public function doctor()  //making relationship
                 {
-                     return $this->belongsTo(Doctor::class,'id','consulted_by');
+                     return $this->belongsTo(Doctor::class,'consulted_by','id');
                 }
 }

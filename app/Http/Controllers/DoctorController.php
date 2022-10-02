@@ -18,7 +18,8 @@ class DoctorController extends Controller
                 'id'=>$item['id'],
                 'name'=>$item['name'],
                 'gender'=>$item['gender'],
-                'phone'=>$item['phone']
+                'phone'=>$item['phone'],
+                'subject'=>$item['subject']
                  ];
         });
         return view('pages.doctor.doctor_list',['doctors'=>$doctors]);
@@ -73,6 +74,7 @@ class DoctorController extends Controller
         'name'=>$request->input('name'),
         'gender'=>$request->input('gender'),
         'phone'=>$request->input('phone'),
+        'subject'=>$request->input('subject'),
        ];
 
        Doctor::where('id',$id)->update($data);                    

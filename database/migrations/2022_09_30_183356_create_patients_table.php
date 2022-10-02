@@ -26,6 +26,8 @@ class CreatePatientsTable extends Migration
             $table->text('relationship')->nullable();
             $table->text('login_id')->unique();
             $table->text('password');
+            $table->integer('is_consulted')->default(0);
+            $table->integer('is_cleared')->default(0);
             $table->timestamps();
         });
     }

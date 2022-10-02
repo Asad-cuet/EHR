@@ -16,6 +16,7 @@
        <th scope="col">Name</th>
        <th scope="col">Gender</th>
        <th scope="col">Phone</th>
+       <th scope="col">Subject</th>
        <th scope="col">Action</th>
      </tr>
    </thead>
@@ -26,9 +27,9 @@
          <td>{{$item['name']}}</td>
          <td>{{$item['gender']}}</td>
          <td>{{$item['phone']}}</td>
+         <td>{{$item['subject']}}</td>
          <td>
             <a href="{{url('/doctor-view/'.$item['id'])}}" class="btn btn-secondary">View</a>
-            <button class="btn btn-primary">Consultation</button>
          </td>
          
        </tr>       

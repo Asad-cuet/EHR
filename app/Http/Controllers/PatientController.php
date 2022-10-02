@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Patient;
+use App\Models\Doctor;
+use App\Models\consultation;
 use Illuminate\Support\Collection;
 
 class PatientController extends Controller
@@ -20,7 +22,9 @@ class PatientController extends Controller
                 'age'=>$item['age'],
                 'weight'=>$item['weight'],
                 'address'=>$item['address'],
-                'phone'=>$item['phone']
+                'phone'=>$item['phone'],
+                'is_consulted'=>$item['is_consulted'],
+                'is_cleared'=>$item['is_cleared']
                  ];
         });
         return view('pages.patient.patient_list',['patients'=>$patients]);
@@ -86,5 +90,37 @@ class PatientController extends Controller
 
         Patient::where('id',$id)->update($data);                    
         return redirect(route('patients'))->with('status','Patient Updated Successfully');
+    }
+    public function consultant($id)
+    {
+           $doctors=Doctor::all();
+           $doctors=collect($doctors)->map(function($item,$key)
+           {
+            return [
+                'doctor_id'=>$item['id'],
+                'name'=>$item['name'],
+                'subject'=>$item['subject'],
+                'gender'=>$item['gender'],
+                'phone'=>$item['phone']
+                 ];
+            });
+            return view('pages.consultation.consultation_room',['doctors'=>$doctors,'patient_id'=>$id]);
+
+    }
+
+    public function consultant_to(Request $request,$patient_id)
+    {
+        $data=[
+          'patient_id'=>$patient_id,
+          'consulted_by'=>$request->input('doctor_id')
+        ];
+        $update_data=[
+            'is_consulted'=>1
+        ];
+        Patient::where('id',$patient_id)->update($update_data);
+        consultation::create($data);
+        return redirect(route('patients'))->with('status','Patient sent to Consultation');
+
+
     }
 }
