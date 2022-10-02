@@ -9,7 +9,7 @@
 @endif
 
 <ul class="list-group">
-      <li class="list-group-item active" aria-current="true">Patient Basic Information</li>
+      <li class="list-group-item bg-info" aria-current="true">Patient Basic Information</li>
       <li class="list-group-item"><b>Name : </b>{{$consultation->patient->name}} </li>
       <li class="list-group-item"><b>Gender : </b>{{$consultation->patient->gender}} </li>
       <li class="list-group-item"><b>Age : </b>{{$consultation->patient->age}} </li>
@@ -28,10 +28,13 @@
       <li class="list-group-item"><b>Duration : </b>{{$consultation->problem_duration}} </li>
 
       <li class="list-group-item bg-warning text-white" aria-current="true">Doctor's Prescription</li>
-      <li class="list-group-item"><b>Napa Extra : </b> 2 times </li>
+      @foreach ($consultation->prescribe as $item)
+      <li class="list-group-item"><b>{{$item['title']}} : </b> {{$item['comment']}}</li>
+      @endforeach
+      
 
 
-      <li class="list-group-item bg-dark text-white" aria-current="true">Given Test</li>
+      <li class="list-group-item active" aria-current="true">Given Test</li>
       <li class="list-group-item"><b>X-ray : </b> Normal </li>
 
 

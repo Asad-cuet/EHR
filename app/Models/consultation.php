@@ -34,4 +34,8 @@ class consultation extends Model
                 {
                      return $this->belongsTo(Doctor::class,'consulted_by','id');
                 }
+    public function prescribe()  //making relationship
+                {
+                     return $this->hasMany(Prescribe::class);
+                }
 }

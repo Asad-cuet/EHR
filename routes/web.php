@@ -45,4 +45,11 @@ Route::get('/problem/{consultation_id}', [App\Http\Controllers\ConsultationContr
 Route::post('/submit-problem/{consultation_id}', [App\Http\Controllers\ConsultationController::class, 'submit_problem'])->name('submit_problem');
 Route::get('/prescribe/{consultation_id}', [App\Http\Controllers\ConsultationController::class, 'prescribe'])->name('prescribe');
 Route::post('/submit-prescribe/{consultation_id}', [App\Http\Controllers\ConsultationController::class, 'submit_prescribe'])->name('submit_prescribe');
+
+
+
+
+Route::get('/tests', [App\Http\Controllers\TestController::class, 'tests'])->name('tests');
+Route::get('/test-form', [App\Http\Controllers\TestController::class, 'test_form'])->name('test_form');
+Route::post('/add-test', [App\Http\Controllers\TestController::class, 'add_test'])->name('add_test');
 });

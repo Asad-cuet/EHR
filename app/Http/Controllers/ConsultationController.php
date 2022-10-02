@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\consultation;
+use App\Models\Prescribe;
 class ConsultationController extends Controller
 {
     public function consultations()
@@ -58,13 +59,31 @@ class ConsultationController extends Controller
 
     public function submit_prescribe(Request $request,$consultation_id)
     {
-        $medicine_name=$request->input('medicine_name');
+        $title=$request->input('title');
         $comment=$request->input('comment');
-        $m_num=count($medicine_name);
+        $m_num=count($title);
         $c_num=count($comment);
-        dd($medicine_name,$comment,$m_num,$c_num);
-        $consultation=consultation::where('id',$consultation_id)->first();
-        return view('pages.consultation.action.prescribe',['consultation_id'=>$consultation_id,'consultation'=>$consultation]);
+        if($m_num!=$c_num)
+        {
+            return redirect()->back()->with('status',"No Field can't be empty");
+        }
+        else
+        {
+            for($i=0;$i<$m_num;$i++)
+            {
+                $data=[
+                        'consultation_id'=>$consultation_id,
+                        'title'=>$title[$i],
+                        'comment'=>$comment[$i]
+
+                ];
+                Prescribe::create($data);
+            }
+          //  dd($all_data);
+            
+            return redirect(route('consultations'))->with('status','Prescribe Added Successfully');
+        }
+        
     }
 
 

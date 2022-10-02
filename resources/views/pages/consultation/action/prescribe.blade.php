@@ -6,7 +6,7 @@
       $(document).ready(function(){
             var cnt=2;
         $("#add").click(function(){
-            var col="<div id='row"+cnt+"'><br><div class='row'><div class='col'><input required type='text' name='medicine_name[]' class='form-control' placeholder='Medicine Name' aria-label='First name'></div><div class='col'><input required type='text' name='comment[]' class='form-control' placeholder='Comment' aria-label='First name'></div></div></div>";
+            var col="<div id='row"+cnt+"'><br><div class='row'><div class='col'><input required type='text' name='title[]' class='form-control' placeholder='Title' aria-label='First name'></div><div class='col'><input required type='text' name='comment[]' class='form-control' placeholder='Comment' aria-label='First name'></div></div></div>";
             $(".box").append(col);
             cnt++;
         });
@@ -31,7 +31,7 @@
       <div id="row1">
       <div class="row" >
             <div class="col">
-              <input required type="text" name="medicine_name[]" class="form-control" placeholder="Medicine Name" aria-label="First name">
+              <input required type="text" name="title[]" class="form-control" placeholder="Title" aria-label="First name">
             </div>
             <div class="col">
               <input required type="text" name="comment[]" class="form-control" placeholder="Comment" aria-label="First name">

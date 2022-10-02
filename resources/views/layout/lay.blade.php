@@ -29,7 +29,12 @@
              <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid mt-3 px-4">
-                            @yield('content')
+                        @if(session()->has('status'))
+                            <div class="alert alert-success" role="alert">
+                                    {{session('status')}}   
+                            </div>                
+                        @endif
+                        @yield('content')
                     </div>        
                 </main>
             </div>   

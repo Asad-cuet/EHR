@@ -15,6 +15,9 @@ class CreatePrescribesTable extends Migration
     {
         Schema::create('prescribes', function (Blueprint $table) {
             $table->id();
+            $table->integer('consultation_id');
+            $table->text('title');
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

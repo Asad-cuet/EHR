@@ -1,6 +1,6 @@
 @extends('layout.lay')
 
-@section('title','Doctors')
+@section('title','Tests')
 @section('content')
 
 
@@ -10,20 +10,14 @@
      <tr>
        <th scope="col">ID</th>
        <th scope="col">Name</th>
-       <th scope="col">Gender</th>
-       <th scope="col">Phone</th>
-       <th scope="col">Subject</th>
        <th scope="col">Action</th>
      </tr>
    </thead>
    <tbody>
-      @foreach ($doctors as $item)
+      @foreach ($tests as $item)
       <tr>
          <td>{{$item['id']}}</td>
-         <td>{{$item['name']}}</td>
-         <td>{{$item['gender']}}</td>
-         <td>{{$item['phone']}}</td>
-         <td>{{$item['subject']}}</td>
+         <td>{{$item['test_name']}}</td>
          <td>
             <a href="{{url('/doctor-view/'.$item['id'])}}" class="btn btn-secondary">View</a>
          </td>
