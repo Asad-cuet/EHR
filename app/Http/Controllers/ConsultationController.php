@@ -11,7 +11,7 @@ class ConsultationController extends Controller
 {
     public function consultations()
     {
-        $consultations=consultation::where('is_on_exam',0)->orderBy('id','desc')->get();
+        $consultations=consultation::where('is_on_exam',0)->where('is_examed',0)->orderBy('updated_at','desc')->get();
         $consultations=collect($consultations)->map(function($item,$key)
         {
             return [
@@ -31,9 +31,9 @@ class ConsultationController extends Controller
     public function consultation_history($id)
     {
         $consultation=consultation::where('id',$id)->first();
+        $test=Exam::where('consultation_id',$id)->get();
         
-        
-        return view('pages.consultation.consultation_history',['consultation'=>$consultation]);
+        return view('pages.consultation.consultation_history',['consultation'=>$consultation,'test'=>$test]);
 
     }
 

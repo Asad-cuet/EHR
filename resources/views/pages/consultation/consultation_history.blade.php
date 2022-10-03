@@ -35,8 +35,11 @@
 
 
       <li class="list-group-item active" aria-current="true">Given Test</li>
-      <li class="list-group-item"><b>X-ray : </b> Normal </li>
-
+      @foreach ($test as $item)
+            <li class="list-group-item">
+                  <b>{{$item->test->test_name}} : </b> Image  
+            </li>
+      @endforeach
 
       <li class="list-group-item bg-success text-white" aria-current="true">Final Result</li>
       <li class="list-group-item">Normal </li>

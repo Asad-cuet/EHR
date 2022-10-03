@@ -11,7 +11,7 @@ class LabController extends Controller
 {
     public function lab()
     {
-        $lab=consultation::where('is_on_exam',1)->orderBy('id','desc')->get();
+        $lab=consultation::where('is_on_exam',1)->where('is_examed',0)->orderBy('updated_at','desc')->get();
         $lab_data=collect($lab)->map(function($item,$key)
         {
             return [
@@ -100,7 +100,11 @@ class LabController extends Controller
 
             if($submitted_before==$total_test) //all report submitted together
             {
-                consultation::where('id',$consultation_id)->update(['is_on_exam'=>0]);
+                $data=[
+                    'is_on_exam'=>0
+                    // 'is_examed'=>0
+                ];
+                consultation::where('id',$consultation_id)->update($data);
                 return redirect(route('lab'))->with('status', "All Report Submitted Successfully");
             }
             else

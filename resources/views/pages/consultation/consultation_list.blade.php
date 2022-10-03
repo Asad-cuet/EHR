@@ -27,7 +27,7 @@
 
             <a href="{{url('/prescribe/'.$item['id'])}}" class="btn btn-warning">Prescribe</a>
             <a href="{{url('/exam/'.$item['id'])}}" class="btn btn-primary">Exam</a>
-            <a href="{{url('/consultant/'.$item['id'])}}" class="btn btn-success">Exam Result</a>
+            <a href="#" class="btn btn-success">Exam Result</a>
          </td>
          
        </tr>       
