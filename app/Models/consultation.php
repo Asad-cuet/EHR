@@ -38,4 +38,8 @@ class consultation extends Model
                 {
                      return $this->hasMany(Prescribe::class);
                 }
+    public function exam()  //making relationship
+                {
+                     return $this->hasMany(Exam::class,'consultation_id','id');
+                }
 }

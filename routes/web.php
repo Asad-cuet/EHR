@@ -52,4 +52,14 @@ Route::post('/submit-prescribe/{consultation_id}', [App\Http\Controllers\Consult
 Route::get('/tests', [App\Http\Controllers\TestController::class, 'tests'])->name('tests');
 Route::get('/test-form', [App\Http\Controllers\TestController::class, 'test_form'])->name('test_form');
 Route::post('/add-test', [App\Http\Controllers\TestController::class, 'add_test'])->name('add_test');
+
+
+Route::get('/exam/{consultation_id}', [App\Http\Controllers\ConsultationController::class, 'exam'])->name('exam');
+Route::post('/submit-exam/{consultation_id}', [App\Http\Controllers\ConsultationController::class, 'submit_exam'])->name('submit_exam');
+
+
+
+Route::get('/lab', [App\Http\Controllers\LabController::class, 'lab'])->name('lab');
+Route::get('/lab-view/{consultation_id}', [App\Http\Controllers\LabController::class, 'lab_view'])->name('lab_view');
+Route::post('/submit-report/{consultation_id}', [App\Http\Controllers\LabController::class, 'submit_report'])->name('submit_report');
 });

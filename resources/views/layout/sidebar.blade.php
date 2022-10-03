@@ -78,9 +78,9 @@
                           <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                           Consultation
                       </a>
-                      <a class="nav-link" href="tables.html">
+                      <a class="nav-link" href="{{url('/lab')}}">
                           <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                          Tables
+                          Laboratory
                       </a>
                   </div>
               </div>

@@ -10,7 +10,6 @@
      <tr>
        <th scope="col">ID</th>
        <th scope="col">Name</th>
-       <th scope="col">Action</th>
      </tr>
    </thead>
    <tbody>
@@ -18,10 +17,6 @@
       <tr>
          <td>{{$item['id']}}</td>
          <td>{{$item['test_name']}}</td>
-         <td>
-            <a href="{{url('/doctor-view/'.$item['id'])}}" class="btn btn-secondary">View</a>
-         </td>
-         
        </tr>       
       @endforeach
 

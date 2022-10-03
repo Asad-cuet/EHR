@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\consultation;
 use App\Models\Prescribe;
+use App\Models\Test;
+use App\Models\Exam;
 class ConsultationController extends Controller
 {
     public function consultations()
@@ -49,6 +51,36 @@ class ConsultationController extends Controller
         consultation::where('id',$consultation_id)->update($data);
         return redirect(route('consultations'))->with('status','Problem Details Submited Successfully');
     }
+
+
+    public function exam($consultation_id)
+    {
+        $tests=Test::all();
+        return view('pages.consultation.action.exam',['consultation_id'=>$consultation_id,'tests'=>$tests]);
+    }
+    public function submit_exam(Request $request,$consultation_id)
+    {
+        $test_id=$request->input('test');
+        $t_num=count($test_id);
+
+        //dd($test_id);
+        for($i=0;$i<$t_num;$i++)
+        {
+            $data=[
+                    'consultation_id'=>$consultation_id,
+                    'test_id'=>$test_id[$i]
+            ];
+            Exam::create($data);
+        }    
+        $consult=consultation::where('id',$consultation_id)->first();
+        $consult->is_on_exam=1;
+        $consult->update();
+
+            return redirect(route('consultations'))->with('status','Exam Added Successfully');
+    }
+
+
+
 
     public function prescribe($consultation_id)
     {
